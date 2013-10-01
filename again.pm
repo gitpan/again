@@ -1,7 +1,9 @@
 package again;
+use strict;
+use warnings;
 use Carp;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 my %mtimes;
 
@@ -37,6 +39,7 @@ sub import {
         splice @_, 0, 1, 'import';
         goto &use;
     }
+    no strict 'refs';
     *{caller() . "::use_again"} = \&use_again;
     *{caller() . "::require_again"} = \&require_again;
 }
@@ -121,6 +124,9 @@ function that you first loaded.
 There is no license. This software was released into the public domain.
 Do with it what you want, but on your own risk. The author disclaims any
 responsibility.
+
+If you want to (re)distribute this module and need a license,
+you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =head1 AUTHOR
 

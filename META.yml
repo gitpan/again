@@ -4,11 +4,9 @@ author:
   - 'Juerd <juerd@utp.juerd.net>'
 build_requires:
   ExtUtils::MakeMaker: 0
-configure_requires:
-  ExtUtils::MakeMaker: 0
 dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.120921'
-license: unknown
+generated_by: 'ExtUtils::MakeMaker version 6.74, CPAN::Meta::Converter version 2.132140'
+license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -18,4 +16,6 @@ no_index:
     - t
     - inc
 requires: {}
-version: 0.03
+resources:
+  repository: git://github.com/neilbowers/again.git
+version: 0.04
