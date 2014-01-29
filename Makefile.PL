@@ -11,11 +11,15 @@ if ($mm_ver =~ /_/) {
 
 WriteMakefile(
     'NAME'		=> 'again',
-    'VERSION_FROM'	=> 'again.pm', # finds $VERSION
-    'PREREQ_PM'		=> {}, # e.g., Module::Name => 1.1
+    'VERSION_FROM'	=> 'lib/again.pm', # finds $VERSION
+    'PREREQ_PM'		=> {
+        'strict'   => 0,
+        'warnings' => 0,
+        'Carp'     => 0,
+    },
 
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
-      (ABSTRACT_FROM => 'again.pm', # retrieve abstract from module
+      (ABSTRACT_FROM => 'lib/again.pm', # retrieve abstract from module
        AUTHOR     => 'Juerd <juerd@utp.juerd.net>') : ()),
 
     ($mm_ver >= 6.31 ? (LICENSE => 'perl') : ()),
@@ -31,4 +35,10 @@ WriteMakefile(
             },
         },
     })),
+
+    ($mm_ver >= 6.48
+        ? (MIN_PERL_VERSION => 5.006)
+        : ()
+    ),
+
 );

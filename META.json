@@ -4,7 +4,7 @@
       "Juerd <juerd@utp.juerd.net>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.74, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "ExtUtils::MakeMaker version 6.86, CPAN::Meta::Converter version 2.133380",
    "license" : [
       "perl_5"
    ],
@@ -25,8 +25,18 @@
             "ExtUtils::MakeMaker" : "0"
          }
       },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
       "runtime" : {
-         "requires" : {}
+         "requires" : {
+            "Carp" : "0",
+            "perl" : "5.006",
+            "strict" : "0",
+            "warnings" : "0"
+         }
       }
    },
    "release_status" : "stable",
@@ -37,5 +47,5 @@
          "web" : "https://github.com/neilbowers/again"
       }
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }
