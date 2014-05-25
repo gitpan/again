@@ -4,7 +4,7 @@ use warnings;
 use 5.006;
 use Carp;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 my %mtimes;
 
@@ -70,9 +70,10 @@ again - Reload modules when they change
 
 =head1 DESCRIPTION
 
-When the perl interpreter lives for a long time, modules are likely to change
-during its lifetime. Especially for mod_perl applications, this module comes in
-handy.
+The B<again> module provides a mechanism for reloading a module
+if its file has changed since it was first / previously loaded.
+This can be useful for long-running applications, where new versions of
+modules might be installed while the application is still running.
 
 =head2 Usage
 
@@ -119,6 +120,23 @@ If you don't do this then you'll end up running the version of the
 function that you first loaded.
 
 =back
+
+=head1 SEE ALSO
+
+L<Module::Reload> provides a class method which checks all
+loaded modules to see if the file on disk has changed since the module
+was loaded. It was last updated in 1998, and I haven't tested it.
+
+L<Class::Unload> unloads a class, by clearing out its symbol table
+and removing it from C<%INC>.
+
+L<Padre::Unload> is part of the L<Padre> IDE. It's similar to Class::Unload,
+but says it has "a few more tricks up its sleeve". It's not documented though,
+so just intended for internal use in Padre.
+
+=head1 REPOSITORY
+
+L<https://github.com/neilbowers/again>
 
 =head1 LICENSE
 

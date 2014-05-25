@@ -4,7 +4,7 @@
       "Juerd <juerd@utp.juerd.net>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.86, CPAN::Meta::Converter version 2.133380",
+   "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.141170",
    "license" : [
       "perl_5"
    ],
@@ -47,5 +47,5 @@
          "web" : "https://github.com/neilbowers/again"
       }
    },
-   "version" : "0.05"
+   "version" : "0.06"
 }
