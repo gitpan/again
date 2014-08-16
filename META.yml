@@ -1,27 +1,24 @@
 ---
-abstract: 'Reload modules when they change'
+abstract: "mechanism for manually reloading modules when they've changed"
 author:
-  - 'Juerd <juerd@utp.juerd.net>'
+  - 'Juerd Waalboer <juerd@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: '0'
+  Test::More: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
-dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.141170'
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.141170'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
 name: again
-no_index:
-  directory:
-    - t
-    - inc
 requires:
   Carp: '0'
   perl: '5.006'
   strict: '0'
   warnings: '0'
 resources:
-  repository: git://github.com/neilbowers/again.git
-version: '0.06'
+  homepage: https://github.com/neilbowers/again
+  repository: https://github.com/neilbowers/again.git
+version: '0.07'

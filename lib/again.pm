@@ -1,10 +1,9 @@
 package again;
+$again::VERSION = '0.07';
 use strict;
 use warnings;
 use 5.006;
 use Carp;
-
-our $VERSION = '0.06';
 
 my %mtimes;
 
@@ -54,7 +53,7 @@ sub unimport {
 
 =head1 NAME
 
-again - Reload modules when they change
+again - mechanism for manually reloading modules when they've changed
 
 =head1 SYNOPSIS
 
@@ -70,7 +69,7 @@ again - Reload modules when they change
 
 =head1 DESCRIPTION
 
-The B<again> module provides a mechanism for reloading a module
+This module provides a mechanism for manually reloading a module
 if its file has changed since it was first / previously loaded.
 This can be useful for long-running applications, where new versions of
 modules might be installed while the application is still running.
@@ -81,10 +80,10 @@ modules might be installed while the application is still running.
 
 =item C<use again;>
 
-A bare C<use again;> (that is: no import list) will export C<require_again>
-(and C<use_again>, which always croaks saying you should use C<use again>
-instead) into your namespace. There is no convenient way to import 
-C<require_again> without importing C<use_again> too.
+A bare C<use again;>, with no import list,
+will export C<require_again> into your package.
+For historical reasons it will also export C<use_again>,
+which you shouldn't use (it will croak anyway).
 
 =item C<use again MODULE, [ IMPORTS ];>
 
@@ -125,13 +124,15 @@ function that you first loaded.
 
 L<Module::Reload> provides a class method which checks all
 loaded modules to see if the file on disk has changed since the module
-was loaded. It was last updated in 1998, and I haven't tested it.
+was loaded.
 
 L<Class::Unload> unloads a class, by clearing out its symbol table
 and removing it from C<%INC>.
 
-L<Padre::Unload> is part of the L<Padre> IDE. It's similar to Class::Unload,
-but says it has "a few more tricks up its sleeve". It's not documented though,
+L<Padre::Unload> is part of the L<Padre> IDE.
+It's similar to L<Class::Unload>,
+but says it has "a few more tricks up its sleeve".
+It's not documented though,
 so just intended for internal use in Padre.
 
 =head1 REPOSITORY
