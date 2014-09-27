@@ -1,5 +1,10 @@
 Revision history for Perl module 'again'
 
+0.08 2014-09-27 NEILB
+    - If you had use'd a module the regular way ("use <module>"),
+      then reloaded it with "use again <Module>", you'd get a warning
+      about an uninitialized value. RT#97789
+
 0.07 2014-08-16 NEILB
     - Improved the abstract (NAME section in pod)
     - Switched to Dist::Zilla

@@ -1,5 +1,5 @@
 package again;
-$again::VERSION = '0.07';
+$again::VERSION = '0.08';
 use strict;
 use warnings;
 use 5.006;
@@ -12,10 +12,26 @@ sub require_again {
     @_ >  1 and croak 'Too many arguments for require_again';
     my $module = shift;
     (my $file = "$module.pm") =~ s[::][/]g;
-    if (not exists $INC{$file} or -M $INC{$file} < $mtimes{$INC{$file}}) {
+    if (!exists($INC{$file}) || !exists($mtimes{$INC{$file}}) || -M $INC{$file} < $mtimes{$INC{$file}}) {
         delete $INC{$file};
+        _unload_module($module);
         require $file;
         $mtimes{$INC{$file}} = -M $INC{$file};
+    }
+}
+
+# Unload all entries in the symbol table, so we get a clean load
+# and don't get any warnings about subs being redefined
+# This function was borrowed from Class::Unload by Dagfinn Ilmari Mannsåker
+sub _unload_module
+{
+    my $package      = shift;
+    my $symbol_table = $package.'::';
+
+    no strict 'refs';
+    foreach my $symbol (keys %$symbol_table) {
+        next if $symbol =~ /\A[^:]+::\z/;
+        delete $symbol_table->{$symbol};
     }
 }
 
